@@ -1,0 +1,77 @@
+<style>
+    .spence-greeting-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+        background: #f9fafb; /* Light neutral background */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+
+    .spence-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+        border: 1px solid #eaeaea;
+        transition: transform 0.3s ease;
+    }
+
+    .spence-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .spence-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
+
+    .spence-title {
+        color: #1f2937;
+        font-size: 32px;
+        font-weight: 800;
+        margin: 0 0 10px 0;
+        line-height: 1.2;
+    }
+
+    .spence-subtitle {
+        color: #6b7280;
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .spence-brand {
+        color: #6366f1;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .spence-accent {
+        width: 50px;
+        height: 4px;
+        background: #6366f1;
+        margin: 25px auto;
+        border-radius: 2px;
+    }
+</style>
+
+<div class="spence-greeting-container">
+    <div class="spence-card">
+        <div class="spence-badge">New Message</div>
+        <h1 class="spence-title">Hi from Spence</h1>
+        <p class="spence-subtitle">at <span class="spence-brand">WP Launchify</span></p>
+        <div class="spence-accent"></div>
+        <p style="color: #9ca3af; font-size: 14px;">Helping you build better WordPress workflows.</p>
+    </div>
+</div>
