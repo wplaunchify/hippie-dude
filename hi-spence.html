@@ -1,77 +1,114 @@
 <style>
-    .spence-greeting-container {
+    /* The main container - BIG and RED */
+    .wpl-holiday-hero {
+        position: relative;
+        /* Vibrant Red to Orange Gradient */
+        background: linear-gradient(135deg, #D4145A 0%, #FBB03B 100%);
+        min-height: 500px; /* Much bigger */
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 60px 20px;
-        background: #f9fafb; /* Light neutral background */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    }
-
-    .spence-card {
-        background: #ffffff;
+        text-align: center;
         padding: 40px;
         border-radius: 20px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        text-align: center;
-        max-width: 500px;
-        width: 100%;
-        border: 1px solid #eaeaea;
-        transition: transform 0.3s ease;
+        overflow: hidden; /* Keeps the particles inside */
+        box-shadow: 0 20px 40px rgba(212, 20, 90, 0.3);
+        font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
-    .spence-card:hover {
-        transform: translateY(-5px);
+    /* Typography */
+    .wpl-content {
+        position: relative;
+        z-index: 10; /* Ensures text sits above particles */
     }
 
-    .spence-badge {
-        display: inline-block;
-        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-        color: white;
-        padding: 5px 15px;
-        border-radius: 50px;
-        font-size: 12px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 20px;
-    }
-
-    .spence-title {
-        color: #1f2937;
-        font-size: 32px;
-        font-weight: 800;
-        margin: 0 0 10px 0;
-        line-height: 1.2;
-    }
-
-    .spence-subtitle {
-        color: #6b7280;
-        font-size: 18px;
+    .wpl-big-text {
+        color: #ffffff;
+        font-size: clamp(3rem, 8vw, 5rem); /* Responsive HUGE font */
+        font-weight: 900;
+        line-height: 1.1;
         margin: 0;
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 0 0 30px rgba(255,255,255,0.5);
     }
 
-    .spence-brand {
-        color: #6366f1;
+    .wpl-sub-text {
+        color: #ffd1d1;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
         font-weight: 700;
-        text-decoration: none;
+        margin: 10px 0 0 0;
     }
 
-    .spence-accent {
-        width: 50px;
-        height: 4px;
-        background: #6366f1;
-        margin: 25px auto;
-        border-radius: 2px;
+    /* The glowing brand name with a pulse animation */
+    .wpl-brand-glow {
+        color: #fff;
+        display: inline-block;
+        background: rgba(255,255,255,0.2);
+        padding: 5px 25px;
+        border-radius: 50px;
+        border: 2px solid rgba(255,255,255,0.4);
+        animation: pulseHappy 2s infinite ease-in-out;
     }
+
+    @keyframes pulseHappy {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(255,255,255,0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+
+    /* --- Particle Animations --- */
+
+    /* 1. Fireflies (Rising Gold) */
+    .particle-firefly {
+        position: absolute;
+        bottom: -5%;
+        background: #FFD700; /* Gold */
+        border-radius: 50%;
+        opacity: 0;
+        box-shadow: 0 0 10px #FFD700, 0 0 20px #FF4500; /* fiery glow */
+        animation: riseUp linear infinite;
+    }
+
+    @keyframes riseUp {
+        0% { opacity: 0; transform: translateY(0) scale(0.5); }
+        20% { opacity: 0.8; }
+        80% { opacity: 0.6; }
+        100% { opacity: 0; transform: translateY(-600px) scale(1.2); left: inherit; }
+    }
+
+    /* 2. Snow/Dust (Falling White) */
+    .particle-snow {
+        position: absolute;
+        top: -5%;
+        background: #ffffff;
+        border-radius: 50%;
+        opacity: 0;
+        animation: fallDown linear infinite;
+    }
+
+    @keyframes fallDown {
+        0% { opacity: 0; transform: translateY(0) translateX(0); }
+        20% { opacity: 0.6; }
+        100% { opacity: 0; transform: translateY(600px) translateX(20px); }
+    }
+
 </style>
 
-<div class="spence-greeting-container">
-    <div class="spence-card">
-        <div class="spence-badge">New Message</div>
-        <h1 class="spence-title">Hi from Spence</h1>
-        <p class="spence-subtitle">at <span class="spence-brand">WP Launchify</span></p>
-        <div class="spence-accent"></div>
-        <p style="color: #9ca3af; font-size: 14px;">Helping you build better WordPress workflows.</p>
+<div class="wpl-holiday-hero">
+
+    <div class="particle-firefly" style="width: 6px; height: 6px; left: 10%; animation-duration: 7s; animation-delay: 0s;"></div>
+    <div class="particle-firefly" style="width: 10px; height: 10px; left: 25%; animation-duration: 12s; animation-delay: 1s;"></div>
+    <div class="particle-firefly" style="width: 4px; height: 4px; left: 40%; animation-duration: 9s; animation-delay: 3s;"></div>
+    <div class="particle-firefly" style="width: 8px; height: 8px; left: 70%; animation-duration: 15s; animation-delay: 0.5s;"></div>
+    <div class="particle-firefly" style="width: 5px; height: 5px; left: 85%; animation-duration: 10s; animation-delay: 2s;"></div>
+
+    <div class="particle-snow" style="width: 4px; height: 4px; left: 15%; animation-duration: 10s; animation-delay: 1s;"></div>
+    <div class="particle-snow" style="width: 6px; height: 6px; left: 35%; animation-duration: 14s; animation-delay: 0s;"></div>
+    <div class="particle-snow" style="width: 3px; height: 3px; left: 60%; animation-duration: 8s; animation-delay: 4s;"></div>
+    <div class="particle-snow" style="width: 5px; height: 5px; left: 80%; animation-duration: 12s; animation-delay: 2.5s;"></div>
+
+    <div class="wpl-content">
+        <h1 class="wpl-big-text">Hi from Spence</h1>
+        <p class="wpl-sub-text">at <span class="wpl-brand-glow">WP Launchify</span></p>
     </div>
 </div>
