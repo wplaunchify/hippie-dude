@@ -1,0 +1,158 @@
+<style>
+    /* 1. RESET & CONTAINER */
+    .wpl-hero-stage {
+        position: relative;
+        width: 100%;
+        min-height: 80vh; /* Professional Hero Height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        /* Modern Vibrant Red Mesh Gradient */
+        background: radial-gradient(at 0% 0%, #ff4d4d 0, transparent 50%), 
+                    radial-gradient(at 50% 0%, #ff0000 0, transparent 50%), 
+                    radial-gradient(at 100% 0%, #d4145a 0, transparent 50%), 
+                    radial-gradient(at 50% 100%, #fb923c 0, transparent 50%),
+                    #b91c1c;
+        font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        color: white;
+    }
+
+    /* 2. GLASSMORPHISM CARD (The "Happy" Center) */
+    .wpl-glass-card {
+        position: relative;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: clamp(2rem, 5vw, 4rem);
+        border-radius: 30px;
+        text-align: center;
+        max-width: 800px;
+        width: 90%;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        animation: floatIn 1.5s ease-out;
+    }
+
+    /* 3. TYPOGRAPHY (Hierarchy & Clamp) */
+    .wpl-title {
+        font-size: clamp(2.5rem, 8vw, 5rem); /* Responsive scaling */
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+        text-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .wpl-subtitle {
+        font-size: clamp(1.2rem, 3vw, 2rem);
+        font-weight: 400;
+        opacity: 0.9;
+        margin-bottom: 2.5rem;
+    }
+
+    .wpl-brand {
+        font-weight: 800;
+        color: #fff;
+        border-bottom: 4px solid #fde047; /* Happy yellow accent */
+    }
+
+    /* 4. BUTTONS (Primary & Secondary) */
+    .wpl-button-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .wpl-btn {
+        padding: 15px 35px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .wpl-btn-primary {
+        background: #ffffff;
+        color: #b91c1c;
+    }
+
+    .wpl-btn-primary:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .wpl-btn-secondary {
+        background: transparent;
+        color: #ffffff;
+        border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .wpl-btn-secondary:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    /* 5. ANIMATIONS (Fireflies & Snowflakes) */
+    .particle {
+        position: absolute;
+        pointer-events: none;
+        border-radius: 50%;
+    }
+
+    /* Fireflies (Warm Gold Rising) */
+    .firefly {
+        background: #fde047;
+        box-shadow: 0 0 10px #fde047;
+        animation: flyUp var(--d) linear infinite;
+        opacity: 0;
+    }
+
+    /* Snowflakes (White Falling) */
+    .snow {
+        background: white;
+        animation: snowDown var(--d) linear infinite;
+        opacity: 0;
+    }
+
+    @keyframes flyUp {
+        0% { transform: translateY(100vh) scale(0); opacity: 0; }
+        50% { opacity: 0.8; }
+        100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    @keyframes snowDown {
+        0% { transform: translateY(-10vh) translateX(0); opacity: 0; }
+        20% { opacity: 0.5; }
+        100% { transform: translateY(100vh) translateX(20px); opacity: 0; }
+    }
+
+    @keyframes floatIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="wpl-hero-stage">
+    
+    <div class="particle firefly" style="left:10%; --d:10s; width:6px; height:6px;"></div>
+    <div class="particle firefly" style="left:30%; --d:14s; width:4px; height:4px;"></div>
+    <div class="particle firefly" style="left:70%; --d:12s; width:8px; height:8px;"></div>
+    <div class="particle firefly" style="left:90%; --d:18s; width:5px; height:5px;"></div>
+
+    <div class="particle snow" style="left:20%; --d:8s; width:5px; height:5px;"></div>
+    <div class="particle snow" style="left:50%; --d:12s; width:3px; height:3px;"></div>
+    <div class="particle snow" style="left:80%; --d:10s; width:6px; height:6px;"></div>
+
+    <div class="wpl-glass-card">
+        <h1 class="wpl-title">Hi from Spence</h1>
+        <p class="wpl-subtitle">at <span class="wpl-brand">WP Launchify</span></p>
+        
+        <div class="wpl-button-group">
+            <a href="#" class="wpl-btn wpl-btn-primary">Launch My Site</a>
+            <a href="#" class="wpl-btn wpl-btn-secondary">Learn More</a>
+        </div>
+    </div>
+</div>
